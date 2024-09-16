@@ -120,7 +120,7 @@ def print_memory_usage():
 async def entrypoint(ctx: JobContext):
     await ctx.connect()
     print(f"Room name: {ctx.room.name}")
-    print_memory_usage()  # Check RAM usage after connection
+    # print_memory_usage()  # Check RAM usage after connection
 
     chat_context = ChatContext(
         messages=[
@@ -174,7 +174,7 @@ DURATION:
 
     # Check memory after assistant starts
     assistant.start(ctx.room)
-    print_memory_usage()  # Check RAM usage after starting assistant
+    # print_memory_usage()  # Check RAM usage after starting assistant
 
     async def _answer(text: str, use_image: bool = False):
         """
@@ -215,7 +215,7 @@ DURATION:
 
         async for event in rtc.VideoStream(video_track):
             latest_image = event.frame
-            print_memory_usage()  # Check RAM usage after processing each frame
+            # print_memory_usage()  # Check RAM usage after processing each frame
 
 
 if __name__ == "__main__":
