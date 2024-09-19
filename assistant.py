@@ -208,7 +208,7 @@ DURATION:
             asyncio.create_task(_answer(user_msg, use_image=True))
 
     await asyncio.sleep(1)
-    # await assistant.say("Hi there! ?", allow_interruptions=True)
+    await assistant.say("Hi there! ?", allow_interruptions=True)
 
     # Check memory while processing video frames
     while ctx.room.connection_state == rtc.ConnectionState.CONN_CONNECTED:
