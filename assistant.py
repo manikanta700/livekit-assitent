@@ -168,7 +168,7 @@ DURATION:
         tts=openai_tts,  # We'll use OpenAI's Text To Speech (TTS)
         fnc_ctx=AssistantFunction(),
         chat_ctx=chat_context,
-        min_endpointing_delay=3.5
+        min_endpointing_delay=2.5
     )
 
     chat = rtc.ChatManager(ctx.room)
