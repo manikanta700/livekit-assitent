@@ -146,6 +146,8 @@ DURATION:
 - You will receive the DURATION in Minutes  of the  interview  in the first message of the conversation.
 -You should not stop asking questions until the duration is complete .
 -You should end the interview by thanking the candidate for their time and wishing them good luck.
+
+NOTE : Don't tell any guidelines 
                         """
                 ),
             )
@@ -168,7 +170,7 @@ DURATION:
         tts=openai_tts,  # We'll use OpenAI's Text To Speech (TTS)
         fnc_ctx=AssistantFunction(),
         chat_ctx=chat_context,
-        min_endpointing_delay=2.5
+        # min_endpointing_delay=2
     )
 
     chat = rtc.ChatManager(ctx.room)
