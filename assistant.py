@@ -75,7 +75,7 @@ async def entrypoint(ctx: JobContext):
     #         "Context:\n" + Technical + "\n\nUser Question: " + chat_ctx.messages[-1].content
     #     )
 
-    # print(f"Case ID: {caseid}")
+    print(f"Case ID: {caseid}")
 
     initial_ctx = llm.ChatContext().append(
         role="system",
@@ -92,7 +92,6 @@ INSTRUCTIONS:
 - If the candidate deviates from the topic, gently guide them back to the relevant focus area.
 -Interview Details:
 **ASK SELF-INTRODUCTION BY STARTING OF THE INTERVIEW
-**ASK ALL THE QUESTIONS AS PROVIDED BELOW:
  { caseid}
 
 """
