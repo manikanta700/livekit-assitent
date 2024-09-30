@@ -1,3 +1,11 @@
 venv
 .env
 .venv2
+annoy
+vdb_data
+assistant2.py
+build_data.py
+my_data.pkl
+raw_data.txt
+TCS_prime.txt
+tcs.txt
