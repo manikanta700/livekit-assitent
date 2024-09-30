@@ -14,7 +14,8 @@ embeddings_dimension = 1536
 
 async def entrypoint(ctx: JobContext):
     await ctx.connect()
-    caseid= str(list(ctx.room.remote_participants.values ()) [0].metadata)
+    print(list(ctx.room.remote_participants.values ()))
+    caseid= str(list(ctx.room.remote_participants.values ())[0].metadata)
     # input_list = caseid.split(",")
     # # print(f"input_list----------------{input_list[0]}")
     # async def _enrich_with_rag(assistant: VoiceAssistant, chat_ctx: llm.ChatContext):
