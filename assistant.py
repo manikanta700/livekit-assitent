@@ -2,7 +2,7 @@ import pickle
 
 from livekit.agents import AutoSubscribe, JobContext, WorkerOptions, cli, llm,JobRequest
 from livekit.agents.voice_assistant import VoiceAssistant
-from livekit.plugins import deepgram, openai, silero
+from livekit.plugins import deepgram, openai, silero,azure
 from dotenv import load_dotenv
 import psutil 
 load_dotenv()
@@ -15,7 +15,7 @@ embeddings_dimension = 1536
 async def entrypoint(ctx: JobContext):
     await ctx.connect()
     print(list(ctx.room.remote_participants.values ()))
-    caseid= str(list(ctx.room.remote_participants.values ())[0].metadata)
+    caseid= str(list(ctx.room.remote_participants.values())[0].metadata)
     # input_list = caseid.split(",")
     # # print(f"input_list----------------{input_list[0]}")
     # async def _enrich_with_rag(assistant: VoiceAssistant, chat_ctx: llm.ChatContext):
@@ -106,10 +106,10 @@ INSTRUCTIONS:
     assistant = VoiceAssistant(
         chat_ctx=initial_ctx,
         vad=silero.VAD.load(),
-        stt=deepgram.STT(),
-        llm=openai.LLM(model="gpt-4o"),
-        tts=openai.TTS(),
-        min_endpointing_delay=1.5,   
+        stt=deepgram.STT(model="nova-2-general",language="en-IN"),
+        llm=openai.LLM.with_ollama(base_url='https://Meta-Llama-3-1-8B-Instruct-aemus.eastus.models.ai.azure.com/v1/'),
+        tts=azure.TTS(),
+        # min_endpointing_delay=1.5,   
     )
 
     assistant.start(ctx.room)
